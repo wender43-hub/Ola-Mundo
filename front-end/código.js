@@ -220,5 +220,3 @@ window.addEventListener('scroll', () => {
   topbar.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-// ---------- Início ----------
-loadProducts();
