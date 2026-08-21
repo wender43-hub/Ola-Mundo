@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabora — sua próxima refeição favorita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== TOPO ===== -->
+  <header class="topbar" id="topbar">
+    <div class="topbar__inner">
+      <a class="logo" href="#top">Sabora</a>
+      <nav class="nav">
+        <a href="#populares">Em alta</a>
+        <a href="#salgados">Pratos salgados</a>
+        <a href="#sobremesas">Sobremesas</a>
+        <a href="#bebidas">Bebidas</a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="cart-btn" id="cartToggle" aria-label="Sacola">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 12H7L6 8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="2"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="searchbar" id="searchBar">
+      <input type="text" id="searchInput" placeholder="Buscar prato, categoria ou ingrediente...">
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero__content">
+      <span class="hero__eyebrow">Prato da semana</span>
+      <h1 class="hero__title">Risoto de<br>cogumelos selvagens</h1>
+      <p class="hero__desc">Arbóreo cremoso, funghi salteados na manteiga e lascas de parmesão curado 24 meses. Pronto em 25 minutos, na sua porta.</p>
+      <div class="hero__actions">
+        <button class="btn btn--primary" data-add="p1">Adicionar à sacola — R$ 42,90</button>
+        <button class="btn btn--ghost" id="heroInfoBtn">Ver detalhes</button>
+      </div>
+    </div>
+    <div class="hero__plate" aria-hidden="true">
+      <div class="plate">
+        <span class="plate__emoji">🍄</span>
+        <div class="plate__steam"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LINHAS DE PRODUTOS (estilo Netflix) ===== -->
+  <main class="rows">
+
+    <section class="row" id="populares">
+      <div class="row__head">
+        <h2>Mais pedidos essa semana</h2>
+      </div>
+      <div class="row__track" data-track="populares"></div>
+    </section>
+
+    <section class="row" id="salgados">
+      <div class="row__head">
+        <h2>Pratos salgados</h2>
+      </div>
+      <div class="row__track" data-track="salgados"></div>
+    </section>
+
+    <section class="row" id="sobremesas">
+      <div class="row__head">
+        <h2>Sobremesas</h2>
+      </div>
+      <div class="row__track" data-track="sobremesas"></div>
+    </section>
+
+    <section class="row" id="bebidas">
+      <div class="row__head">
+        <h2>Bebidas</h2>
+      </div>
+      <div class="row__track" data-track="bebidas"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== SACOLA LATERAL ===== -->
+  <aside class="cart" id="cartPanel">
+    <div class="cart__head">
+      <h3>Sua sacola</h3>
+      <button class="icon-btn" id="cartClose" aria-label="Fechar">✕</button>
+    </div>
+    <div class="cart__items" id="cartItems">
+      <p class="cart__empty">Sua sacola está vazia. Que tal adicionar algo gostoso?</p>
+    </div>
+    <div class="cart__footer">
+      <div class="cart__total">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="btn btn--primary btn--full" id="checkoutBtn">Fechar pedido</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ===== MODAL DE PRODUTO ===== -->
+  <div class="modal" id="productModal">
+    <div class="modal__card" id="modalCard"></div>
+  </div>
+
+  <footer class="footer">
+    <p>Sabora — feito com fome de fazer diferente. Backend de demonstração em Java.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
